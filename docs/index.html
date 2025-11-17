@@ -2,46 +2,74 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Course Selector Prototype</title>
+    <link rel="stylesheet" href="styles.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/style.css">
+
 </head>
 
 <body>
 
     <header>
         <h1>Course Selector Prototype</h1>
+        <div class="muted">Click fewer times to pick a subject & course</div>
     </header>
 
     <div class="layout">
 
-        <div class="card">
-            <p class="muted">Choose a subject, then pick courses.</p>
+        <section class="card" aria-labelledby="origTitle">
+            <h2 id="origTitle">Original UI (screenshot)</h2>
+            <p class="muted">Subject were typed into a small textbox. Hard to discover common subjects esspicaly when
+                common two letter classes.</p>
+            <img class="images" src="images/orig.png" alt="Original registration form screenshot" />
+        </section>
 
-            <div id="subjects" class="subjects"></div>
+        <section class="card" aria-labelledby="newTitle">
+            <h2 id="newTitle">Improved UI (prototype)</h2>
+            <p class="muted">Subjects as buttons → click to reveal course numbers. Click stats recorded in console.</p>
 
-            <div id="courses" class="courses"></div>
+            <div>
+                <label for="subjectGroup" class="muted">Subjects</label>
+                <div id="subjectGroup" class="subjects" role="tablist" aria-label="Subjects"></div>
+            </div>
 
-            div class="controls">
-            <input id="searchbox" class="searchbox" placeholder="Selected courses…" />
-            <button id="clearBtn" class="btn">Clear</button>
-        </div>
+            <div style="margin-top:12px">
+                <label class="muted">Courses</label>
+                <div id="courseList" class="courses" aria-live="polite">
+                    <span class="muted">Choose a subject to see courses</span>
+                </div>
+            </div>
 
-        <div id="stats" class="stats"></div>
+            <div class="controls" role="region" aria-label="Search controls">
+                <input id="searchInput" class="searchbox" placeholder="Selected courses will appear here (editable)" />
+                <button id="selectBtn" class="btn" disabled aria-disabled="true">Select</button>
+                <button id="clearBtn" class="btn">Clear</button>
+            </div>
+
+            <div class="stats" id="statsArea">
+                Clicks: <span id="clickCount">0</span> • Time elapsed: <span id="timeElapsed">0.00</span>s
+            </div>
+
+            <div style="margin-top:10px;font-size:13px;color:#6b7280">
+                Tip: tab to subject buttons and press Enter/Space. Selected courses become chips you can toggle.
+            </div>
+        </section>
+
     </div>
 
-    <div class="card">
-        <p class="muted">Original UI for reference:</p>
-        <!-- <img src="orig.png" alt="Original" class="orig"> -->
-    </div>
+    <footer class="card" style="margin-top:18px">
+        <strong>Prototype details</strong> — Buttons replace the small textbox; courses shown as chips for quick
+        selection.
+    </footer>
 
-    </div>
-
+    <!-- script at end of body so DOM exists when it runs -->
     <script src="scripts/script.js"></script>
+</body>
 
 </html>

@@ -73,6 +73,7 @@ button.subject[aria-pressed="true"] {
     border: 1px solid #e5e7eb;
     background: #fff;
     cursor: pointer;
+    user-select: none;
 }
 
 .chip.selected {
@@ -101,6 +102,12 @@ button.subject[aria-pressed="true"] {
     background: #2563eb;
     color: white;
     cursor: pointer;
+}
+
+.btn[disabled],
+.btn[aria-disabled="true"] {
+    background: #94a3b8;
+    cursor: not-allowed;
 }
 
 footer {

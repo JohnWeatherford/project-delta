@@ -11,7 +11,9 @@ Should take about two clicks to select. This message is at the bottome of the pa
 
 ChatGPT was used to help create most of the CSS, JS, HTML. Was updated to look better. Used VS code, bootstrap 5, Google fonts, NU Validator, WAVE, Google Chrome, GitHub and GitHub Pages
 
-NU Validator
+NU Validator: https://validator.nu/?doc=https%3A%2F%2Fjohnweatherford.github.io%2Fproject-delta%2F.
+
+Wave: https://wave.webaim.org/report#/https://validator.nu/?doc=https%3A%2F%2Fjohnweatherford.github.io%2Fproject-delta%2F
 
 ```js
 

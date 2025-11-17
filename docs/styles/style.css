@@ -1,12 +1,24 @@
-:root {
+root {
     font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+    --bg: #ffffff;
+    --text: #1a1a1a;
+    --muted: #4b5563;
+    --border: #9ca3af;
+    /* darker border */
+    --card-bg: #ffffff;
+
+    /* interactive colors */
+    --accent: #1e40af;/ --accent-text: #ffffff;
+    --chip-bg: #f3f4f6;
+    --chip-selected-bg: #fde047;
+    --chip-selected-border: #d97706;
 }
 
 body {
     margin: 0;
     padding: 24px;
-    background: #f5f7fb;
-    color: #1f2937;
+    background: var(--bg);
+    color: var(--text);
 }
 
 header {
@@ -19,6 +31,7 @@ header {
 h1 {
     font-size: 20px;
     margin: 0;
+    color: var(--text);
 }
 
 .layout {
@@ -28,14 +41,15 @@ h1 {
 }
 
 .card {
-    background: white;
+    background: var(--card-bg);
     border-radius: 10px;
     padding: 16px;
-    box-shadow: 0 2px 6px rgba(14, 20, 30, 0.06);
+    box-shadow: 0 2px 6px rgba(14, 20, 30, 0.10);
+    border: 1px solid var(--border);
 }
 
 .muted {
-    color: #6b7280;
+    color: var(--muted);
     font-size: 13px;
 }
 
@@ -49,15 +63,17 @@ h1 {
 button.subject {
     padding: 8px 12px;
     border-radius: 8px;
-    border: 1px solid #d1d5db;
-    background: linear-gradient(#fff, #f8fafc);
+    border: 2px solid var(--border);
+    background: var(--chip-bg);
     cursor: pointer;
+    color: var(--text);
+    font-weight: 600;
 }
 
 button.subject[aria-pressed="true"] {
-    border-color: #fb923c;
-    background: linear-gradient(#fff4eb, #fff0e6);
-    box-shadow: 0 1px 0 rgba(251, 146, 60, 0.15);
+    border-color: var(--accent);
+    background: #e0e7ff;
+    /* light blue for visibility */
 }
 
 .courses {
@@ -70,15 +86,15 @@ button.subject[aria-pressed="true"] {
 .chip {
     padding: 6px 10px;
     border-radius: 999px;
-    border: 1px solid #e5e7eb;
-    background: #fff;
+    border: 2px solid var(--border);
+    background: var(--chip-bg);
     cursor: pointer;
-    user-select: none;
+    color: var(--text);
 }
 
 .chip.selected {
-    background: #fde68a;
-    border-color: #facc15;
+    background: var(--chip-selected-bg);
+    border-color: var(--chip-selected-border);
 }
 
 .controls {
@@ -92,43 +108,46 @@ button.subject[aria-pressed="true"] {
     flex: 1;
     padding: 8px;
     border-radius: 8px;
-    border: 1px solid #d1d5db;
+    border: 2px solid var(--border);
+    background: #fff;
+    color: var(--text);
 }
 
 .btn {
     padding: 8px 12px;
     border-radius: 8px;
     border: none;
-    background: #2563eb;
-    color: white;
+    background: var(--accent);
+    color: var(--accent-text);
     cursor: pointer;
+    font-weight: 600;
 }
 
-.btn[disabled],
-.btn[aria-disabled="true"] {
-    background: #94a3b8;
+.btn:disabled {
+    background: #9ca3af;
+    /* high contrast disabled state */
     cursor: not-allowed;
 }
 
 footer {
     margin-top: 18px;
     font-size: 13px;
-    color: #374151;
+    color: var(--muted);
 }
 
 .stats {
     margin-top: 12px;
     font-size: 13px;
-    color: #374151;
+    color: var(--text);
 }
 
 img.orig {
     max-width: 100%;
     border-radius: 6px;
-    border: 1px solid #e5e7eb;
+    border: 2px solid var(--border);
 }
 
-@media (max-width: 900px) {
+@media(max-width: 900px) {
     .layout {
         grid-template-columns: 1fr;
     }

@@ -10,3 +10,16 @@ Test Case
 Should take about two clicks to select. This message is at the bottome of the page: Selected: MA 101 (MWF 8:00 to 8:50 AM) • Total clicks: 2.
 
 ChatGPT was used to help create most of the CSS, JS, HTML. Was updated to look better. Used VS code, bootstrap 5, Google fonts, NU valadator, WAVE, Google Chrome, GitHub and GitHub Pages
+
+```js
+
+try {
+                if (!clickCountingActive) return;
+                clickCounter += 1;
+                // update the small UI counter and elapsed time
+                if (clickCountEl) clickCountEl.textContent = clickCounter;
+                if (timeElapsedEl) timeElapsedEl.textContent = ((performance.now() - startTime) / 1000).toFixed(2);
+                console.debug('[ClickCounter] +1', action, 'total=', clickCounter);
+            } catch (err) {
+                console.error('safeCountClick failed', err);
+            }
